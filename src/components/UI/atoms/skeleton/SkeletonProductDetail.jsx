@@ -3,7 +3,7 @@ import React from 'react'
 function SkeletonProductDetail() {
   return (
     <>
-      <div role='status' className='layout my-6 animate-pulse bg-white md:my-8'>
+      <div role='status' className='layout mt-6 animate-pulse bg-white md:my-8'>
         <div>
           <div className='mb-4 h-2.5 w-6/12 rounded-full bg-slate-100'></div>
         </div>
@@ -24,17 +24,21 @@ function SkeletonProductDetail() {
               <div className='h-2 rounded-full bg-slate-100'></div>
             </div>
 
-            <div className='mt-4'>
+            <div className='my-4 md:mt-4'>
               <div className='mb-4 h-2.5 w-40 rounded-full bg-slate-100'></div>
             </div>
 
-            <div className='mt-8 flex items-center gap-12'>
-              <div className='mt-4 flex gap-12'>
-                <div className='mb-4 h-10 w-32 rounded-full bg-slate-100 lg:w-36'></div>
-              </div>
+            <div className='sticky bottom-0 flex justify-center bg-white py-2 md:relative md:mt-8 md:justify-start md:py-0'>
+              <div className='flex items-center gap-12'>
+                <div className='m-0 flex gap-12 md:mt-4'>
+                  <div className='flex items-center gap-4'>
+                    <div className='h-10 w-32 rounded-full bg-slate-100 lg:w-36'></div>
+                  </div>
+                </div>
 
-              <div className='mt-4'>
-                <div className='mb-4 h-10 w-32 rounded-full bg-slate-100 lg:w-36'></div>
+                <div className='m-0 md:mt-4'>
+                  <div className='h-10 w-32 rounded-full bg-slate-100 lg:w-36'></div>
+                </div>
               </div>
             </div>
           </div>
