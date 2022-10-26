@@ -4,11 +4,7 @@ function ButtonCount() {
   const [count, setCount] = useState(0)
 
   function handleSubstract() {
-    if (count > 0) {
-      setCount(count - 1)
-    } else {
-      setCount(0)
-    }
+    count > 0 ? setCount(count - 1) : setCount(0)
   }
 
   function handelAdd() {
