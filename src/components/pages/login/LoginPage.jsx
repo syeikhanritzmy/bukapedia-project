@@ -20,8 +20,8 @@ function LoginPage() {
 
   return (
     <>
-      <div className='md:layout my-12'>
-        <div className='h-screensize mx-auto grid max-w-screen-xl items-center justify-center md:grid-cols-2'>
+      <div className='md:layout my-12 mx-auto max-w-screen-xl'>
+        <div className='h-screensize grid items-center justify-center md:grid-cols-2'>
           <div className='mx-auto w-40 md:w-8/12'>
             <img className='' src={LoginImg} alt='login' />
           </div>
