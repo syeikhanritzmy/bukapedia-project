@@ -5,7 +5,8 @@ import Navbar from '../UI/organisms/navbar/Navbar'
 
 import HomePage from '../pages/user/home'
 import ProductDetailPage from '../pages/user/product-detail'
-import LoginPage from '../pages/login/LoginPage'
+import LoginPage from '../pages/login'
+import NotFoundPage from '../pages/not-found'
 
 function Templates() {
   return (
@@ -16,6 +17,8 @@ function Templates() {
         <Route path='/' element={<HomePage />} />
         <Route path='/product/:productId' element={<ProductDetailPage />} />
         <Route path='/login' element={<LoginPage />} />
+
+        <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </>
   )
