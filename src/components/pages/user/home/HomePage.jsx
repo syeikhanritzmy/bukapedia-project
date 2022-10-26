@@ -23,7 +23,7 @@ function HomePage() {
 
   return (
     <>
-      <div className='md:layout my-8 overflow-hidden md:my-6'>
+      <div className='md:layout my-8 mx-auto max-w-screen-xl overflow-hidden md:my-6'>
         {loading ? (
           <Skeleton />
         ) : (
@@ -31,7 +31,7 @@ function HomePage() {
         )}
       </div>
 
-      <div className='layout my-8 md:my-12'>
+      <div className='layout my-8 mx-auto max-w-screen-xl md:my-12'>
         <div>
           <h2 className='text-base font-bold text-gray-900 md:text-lg lg:text-xl'>
             Products For You!
