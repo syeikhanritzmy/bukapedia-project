@@ -47,7 +47,7 @@ function Navbar() {
                 }
                 to='/cart'
               >
-                <CartIcon /> Cart
+                <CartIcon className={'mt-0.5 h-5 w-5 text-black'} /> Cart
               </NavLink>
 
               <NavLink
