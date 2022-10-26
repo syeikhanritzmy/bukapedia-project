@@ -18,7 +18,7 @@ function ProductDetailPage() {
 
   return (
     <>
-      <div>
+      <div className='mx-auto max-w-screen-xl'>
         {loading ? (
           <SkeletonProductDetail />
         ) : (
