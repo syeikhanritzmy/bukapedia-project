@@ -20,7 +20,7 @@ function LoginPage() {
 
   return (
     <>
-      <div className='md:layout my-12 mx-auto max-w-screen-xl'>
+      <div className='md:layout mx-auto mt-12 max-w-screen-xl xs:my-12'>
         <div className='h-screensize grid items-center justify-center md:grid-cols-2'>
           <div className='mx-auto w-40 md:w-8/12'>
             <img className='' src={LoginImg} alt='login' />
@@ -28,11 +28,11 @@ function LoginPage() {
 
           <div className='items-center rounded-lg bg-white shadow-2xl shadow-gray-200'>
             <div className='px-10 py-16'>
-              <h2 className='flex justify-center text-lg font-bold text-gray-900 md:text-xl lg:text-2xl'>
-                Selamat Datang Kembali!
+              <h2 className='flex justify-center text-xl font-bold text-gray-900 lg:text-2xl'>
+                Welcome back!
               </h2>
               <span className='mt-2 flex justify-center text-sm font-normal text-gray-800 md:text-base'>
-                Silakan masuk dengan alamat email
+                Please login with email address
               </span>
 
               <div className='mt-8'>
