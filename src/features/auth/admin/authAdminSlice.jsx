@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import notif from 'react-hot-toast'
 
 const initialState = {
-  auth: [],
+  auth: JSON.parse(sessionStorage.getItem('auth')) || [],
   loading: false,
 }
 
@@ -26,6 +26,7 @@ export const authAdminLogin = createAsyncThunk(
   async ({ email, password }) => {
     try {
       const res = await loginAdmin(email, password)
+      sessionStorage.setItem('auth', JSON.stringify(res))
       return res
     } catch (e) {
       throw new Error(e)
@@ -44,8 +45,6 @@ const authAdminSlice = createSlice({
     [authAdminLogin.fulfilled]: (state, { payload }) => {
       state.auth = payload
       state.loading = false
-      localStorage.setItem('auth', JSON.stringify(payload))
-      notif.success('Login Success')
     },
     [authAdminLogin.rejected]: (state, { error }) => {
       state.loading = false
