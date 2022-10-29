@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { useNavigate, NavLink } from 'react-router-dom'
 import LinkNavbar from '../../atoms/link-navbar/LinkNavbar'
 import ButtonNavbar from '../../atoms/button/ButtonNavbar'
 import Logo from '../../atoms/logo/Logo'
 import CartIcon from '../../atoms/icon/Cart'
 
 function Navbar() {
+  const navigate = useNavigate()
+
   const [navColor, setNavColor] = useState('bg-white')
 
   const changeNavbarColor = () => {
@@ -20,6 +22,16 @@ function Navbar() {
       window.removeEventListener('scroll', changeNavbarColor)
     }
   }, [])
+
+  function handleLogout() {
+    if (window.confirm('Are you sure to logout?')) {
+      sessionStorage.removeItem('auth')
+      window.location.reload()
+      navigate('/')
+    } else {
+      return
+    }
+  }
 
   return (
     <>
@@ -50,16 +62,16 @@ function Navbar() {
                 <CartIcon className={'mt-0.5 h-5 w-5 text-black'} /> Cart
               </NavLink>
 
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? 'active rounded-md border border-blue-600 px-4 py-2 shadow-xl shadow-blue-100/50'
-                    : 'inactive rounded-md border border-blue-600 px-4 py-2 shadow-xl shadow-blue-100/50 hover:text-black'
+              <button
+                className='rounded-md border border-blue-600 px-4 py-2 shadow-xl shadow-blue-100/50 hover:text-black'
+                onClick={
+                  sessionStorage.getItem('auth')
+                    ? handleLogout
+                    : () => navigate('/login')
                 }
-                to='/login'
               >
-                Login
-              </NavLink>
+                {sessionStorage.getItem('auth') ? 'Logout' : 'Login'}
+              </button>
             </div>
           </div>
         </div>
