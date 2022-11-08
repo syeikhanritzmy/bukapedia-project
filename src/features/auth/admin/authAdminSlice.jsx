@@ -1,8 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import notif from 'react-hot-toast'
 
+const token = 'WuieWUNOPP9893nn89'
+
 const initialState = {
-  auth: JSON.parse(sessionStorage.getItem('auth')) || [],
+  auth: JSON.parse(localStorage.getItem('auth')) || [],
   loading: false,
 }
 
@@ -11,8 +13,7 @@ function loginAdmin(email, password) {
     setTimeout(() => {
       if (email === 'admin@bukapedia.com' && password === 'admin123') {
         resolve({
-          email: email,
-          password: password,
+          token: token,
         })
       } else {
         reject('Invalid Email or Password')
@@ -26,7 +27,7 @@ export const authAdminLogin = createAsyncThunk(
   async ({ email, password }) => {
     try {
       const res = await loginAdmin(email, password)
-      sessionStorage.setItem('auth', JSON.stringify(res))
+      localStorage.setItem('auth', JSON.stringify(res))
       return res
     } catch (e) {
       throw new Error(e)
