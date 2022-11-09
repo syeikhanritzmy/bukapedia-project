@@ -1,13 +1,13 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import Card from '../../UI/organisms/card/Card'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Card from '../../UI/organisms/card/Card';
 
 function ItemProduct({ product }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const navigateToDetailProduct = () => {
-    navigate(`/product/${product?.id}`, { replace: true })
-  }
+    navigate(`/product/${product?.id}`, { replace: true });
+  };
   return (
     <>
       <Card
@@ -16,9 +16,10 @@ function ItemProduct({ product }) {
         title={(product?.title).substr(0, 30) + '...'}
         clickProductDetail={navigateToDetailProduct}
         price={product?.price}
+        product={product}
       />
     </>
-  )
+  );
 }
 
-export default ItemProduct
+export default ItemProduct;
