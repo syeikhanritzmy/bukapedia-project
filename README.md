@@ -48,7 +48,7 @@ Have a bug or an issue with this bukapedia? [Open a new issue](https://github.co
 
 ## Creator
 
-NewsHub was coded and modified by and is maintained by [syeikhan](https://github.com/syeikhanritzmy) and [Dani](https://github.com/danisec)
+BukaPedia was coded and modified by and is maintained by [syeikhan](https://github.com/syeikhanritzmy) and [Dani](https://github.com/danisec)
 
 <br />
 
