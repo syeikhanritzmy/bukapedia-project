@@ -1,8 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { authAdminLogin } from '../../../features/auth/admin/authAdminSlice'
 import LoginImg from '../../../assets/login/login-image.svg'
 import FormLogin from '../../UI/organisms/form/FormLogin'
 
 function LoginPage() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const authAdmin = useSelector((state) => state.authAdmin)
+  const loading = useSelector((state) => state.authAdmin.loading)
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -16,7 +25,12 @@ function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    dispatch(authAdminLogin({ email, password }))
   }
+
+  useEffect(() => {
+    authAdmin.auth.token ? navigate('/') : navigate('/login')
+  }, [authAdmin, navigate])
 
   return (
     <>
@@ -40,7 +54,7 @@ function LoginPage() {
                   handleSubmit={handleSubmit}
                   emailChange={emailChange}
                   passwordChange={passwordChange}
-                  buttonName={'Login'}
+                  buttonName={loading ? 'Waiting' : 'Login'}
                 />
               </div>
             </div>

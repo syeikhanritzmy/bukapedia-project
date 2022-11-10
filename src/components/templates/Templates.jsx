@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import Navbar from '../UI/organisms/navbar/Navbar'
 
@@ -9,14 +10,25 @@ import LoginPage from '../pages/login'
 import NotFoundPage from '../pages/not-found'
 
 function Templates() {
+  const authAdmin = useSelector((state) => state.authAdmin.auth)
+
   return (
     <>
       <Navbar />
 
       <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/product/:productId' element={<ProductDetailPage />} />
-        <Route path='/login' element={<LoginPage />} />
+        {authAdmin.token ? (
+          <>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/login' element={<LoginPage />} />
+          </>
+        ) : (
+          <>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/product/:productId' element={<ProductDetailPage />} />
+            <Route path='/login' element={<LoginPage />} />
+          </>
+        )}
 
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
