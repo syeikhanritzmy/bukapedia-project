@@ -9,7 +9,7 @@ function LoginPage() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const authAdmin = useSelector((state) => state.authAdmin.auth)
+  const authAdmin = useSelector((state) => state.authAdmin)
   const loading = useSelector((state) => state.authAdmin.loading)
 
   const [email, setEmail] = useState('')
@@ -29,7 +29,7 @@ function LoginPage() {
   }
 
   useEffect(() => {
-    authAdmin.email && authAdmin.password ? navigate('/') : navigate('/login')
+    authAdmin.token ? navigate('/') : navigate('/login')
   }, [authAdmin, navigate])
 
   return (
