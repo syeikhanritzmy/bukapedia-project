@@ -17,7 +17,7 @@ function Templates() {
       <Navbar />
 
       <Routes>
-        {authAdmin.email && authAdmin.password ? (
+        {authAdmin.token ? (
           <>
             <Route path='/' element={<HomePage />} />
             <Route path='/login' element={<LoginPage />} />
