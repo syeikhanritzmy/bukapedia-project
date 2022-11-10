@@ -1,24 +1,24 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchProductDetail } from '../../../../features/product-detail/productDetailSlice';
-import CardProductDetail from '../../../UI/organisms/card/CardProductDetail';
-import SkeletonProductDetail from '../../../UI/atoms/skeleton/SkeletonProductDetail';
+import React, { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProductDetail } from '../../../../features/product-detail/productDetailSlice'
+import CardProductDetail from '../../../UI/organisms/card/CardProductDetail'
+import SkeletonProductDetail from '../../../UI/atoms/skeleton/SkeletonProductDetail'
 
 function ProductDetailPage() {
-  const dispatch = useDispatch();
-  const { productId } = useParams();
+  const dispatch = useDispatch()
+  const { productId } = useParams()
 
-  const product = useSelector((state) => state.productDetail.product);
-  const loading = useSelector((state) => state.productDetail.loading);
+  const product = useSelector((state) => state.productDetail.product)
+  const loading = useSelector((state) => state.productDetail.loading)
 
   useEffect(() => {
-    dispatch(fetchProductDetail(productId));
-  }, [dispatch]);
+    dispatch(fetchProductDetail(productId))
+  }, [dispatch])
 
   return (
     <>
-      <div className="mx-auto max-w-screen-xl">
+      <div className='mx-auto max-w-screen-xl'>
         {loading ? (
           <SkeletonProductDetail />
         ) : (
@@ -28,12 +28,12 @@ function ProductDetailPage() {
             title={product?.title}
             description={product?.description}
             price={product?.price}
-            productItem={product} //
+            productItem={product}
           />
         )}
       </div>
     </>
-  );
+  )
 }
 
-export default ProductDetailPage;
+export default ProductDetailPage
