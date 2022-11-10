@@ -1,6 +1,5 @@
 import React from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
-import Logo from '../logo/Logo'
 
 function LinkNavbar() {
   const location = useLocation()

@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import LinkNavbar from '../../atoms/link-navbar/LinkNavbar'
 import ButtonNavbar from '../../atoms/button/ButtonNavbar'
 import Logo from '../../atoms/logo/Logo'
+import CartIcon from '../../atoms/icon/Cart'
 
 function Navbar() {
   const [navColor, setNavColor] = useState('bg-white')
@@ -37,19 +38,33 @@ function Navbar() {
               </div>
             </div>
 
-            <NavLink
-              className={({ isActive }) =>
-                isActive
-                  ? 'active rounded-md border border-blue-600 px-4 py-2 shadow-xl shadow-blue-100/50'
-                  : 'inactive rounded-md border border-blue-600 px-4 py-2 shadow-xl shadow-blue-100/50 hover:text-black'
-              }
-              to='/login'
-            >
-              Login
-            </NavLink>
+            <div className='flex items-center gap-8'>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? 'active flex gap-2'
+                    : 'inactive flex gap-2 hover:text-blue-500'
+                }
+                to='/cart'
+              >
+                <CartIcon className={'mt-0.5 h-5 w-5 text-black'} /> Cart
+              </NavLink>
+
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? 'active rounded-md border border-blue-600 px-4 py-2 shadow-xl shadow-blue-100/50'
+                    : 'inactive rounded-md border border-blue-600 px-4 py-2 shadow-xl shadow-blue-100/50 hover:text-black'
+                }
+                to='/login'
+              >
+                Login
+              </NavLink>
+            </div>
           </div>
         </div>
 
+        {/* Nav Mobile */}
         <div className='flex items-center justify-between md:hidden'>
           <NavLink to='/'>
             <Logo classLogo={`w-28 h-auto`} />

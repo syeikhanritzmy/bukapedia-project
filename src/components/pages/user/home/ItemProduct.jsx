@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Card from '../../UI/organisms/card/Card';
+import Card from '../../../UI/organisms/card/Card';
 
 function ItemProduct({ product }) {
   const navigate = useNavigate();

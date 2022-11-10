@@ -1,3 +1,4 @@
+<<<<<<< HEAD:src/components/pages/product-detail/ProductDetailPage.jsx
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -5,6 +6,14 @@ import { fetchProductDetail } from '../../../features/product-detail/productDeta
 import CardProductDetail from '../../UI/organisms/card/CardProductDetail';
 import SkeletonProductDetail from '../../UI/atoms/skeleton/SkeletonProductDetail';
 import { useState } from 'react';
+=======
+import React, { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProductDetail } from '../../../../features/product-detail/productDetailSlice'
+import CardProductDetail from '../../../UI/organisms/card/CardProductDetail'
+import SkeletonProductDetail from '../../../UI/atoms/skeleton/SkeletonProductDetail'
+>>>>>>> feature:src/components/pages/user/product-detail/ProductDetailPage.jsx
 
 function ProductDetailPage() {
   const dispatch = useDispatch();
@@ -19,7 +28,7 @@ function ProductDetailPage() {
 
   return (
     <>
-      <div>
+      <div className='mx-auto max-w-screen-xl'>
         {loading ? (
           <SkeletonProductDetail />
         ) : (
