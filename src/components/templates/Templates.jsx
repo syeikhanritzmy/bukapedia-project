@@ -7,6 +7,9 @@ import Navbar from '../UI/organisms/navbar/Navbar'
 import HomePage from '../pages/user/home'
 import ProductDetailPage from '../pages/user/product-detail'
 import LoginPage from '../pages/login'
+
+import HomeAdminPage from '../pages/admin/home'
+
 import NotFoundPage from '../pages/not-found'
 
 function Templates() {
@@ -19,7 +22,7 @@ function Templates() {
       <Routes>
         {authAdmin.token ? (
           <>
-            <Route path='/' element={<HomePage />} />
+            <Route path='/' element={<HomeAdminPage />} />
             <Route path='/login' element={<LoginPage />} />
           </>
         ) : (
