@@ -32,42 +32,42 @@ function HomePage() {
     <>
       <div className='layout relative my-8 mx-auto max-w-screen-xl md:my-12'>
         <div>
-          <h2 className='text-base font-bold text-gray-900 md:text-lg lg:text-xl'>
+          <h2 className='text-lg font-bold text-gray-900 lg:text-xl'>
             Stock Products
           </h2>
         </div>
 
         <div className='relative overflow-x-auto'>
           <table className='mt-8 w-full text-left text-sm text-gray-500'>
-            <thead className='bg-gray-50 text-xs uppercase text-gray-700'>
+            <thead className='bg-gray-50 text-gray-700'>
               <tr>
                 <th
                   scope='col'
-                  className='py-3 px-6 text-base font-bold text-gray-900'
+                  className='py-3 px-6 text-base font-bold text-gray-900 lg:text-lg'
                 >
                   No
                 </th>
                 <th
                   scope='col'
-                  className='py-3 px-6 text-base font-bold text-gray-900'
+                  className='py-3 px-6 text-base font-bold text-gray-900 lg:text-lg'
                 >
                   Image
                 </th>
                 <th
                   scope='col'
-                  className='py-3 px-6 text-base font-bold text-gray-900'
+                  className='py-3 px-6 text-base font-bold text-gray-900 lg:text-lg'
                 >
                   Product Name
                 </th>
                 <th
                   scope='col'
-                  className='py-3 px-6 text-base font-bold text-gray-900'
+                  className='py-3 px-6 text-base font-bold text-gray-900 lg:text-lg'
                 >
                   Stock
                 </th>
                 <th
                   scope='col'
-                  className='py-3 px-6 text-base font-bold text-gray-900'
+                  className='py-3 px-6 text-base font-bold text-gray-900 lg:text-lg'
                 >
                   Action
                 </th>
