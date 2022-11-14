@@ -40,6 +40,24 @@ BukaPedia is an online buying and selling site.
 
 <br />
 
+## Login Account
+
+### User
+
+Username : `mor_2314`
+
+Password : `83r5^_`
+
+<br />
+
+### Admin
+
+Email : `admin@bukapedia.com`
+
+Password : `admin123`
+
+<br />
+
 ## Bugs and Issues
 
 Have a bug or an issue with this bukapedia? [Open a new issue](https://github.com/syeikhanritzmy/bukapedia-project/issues/new) here on Github.
