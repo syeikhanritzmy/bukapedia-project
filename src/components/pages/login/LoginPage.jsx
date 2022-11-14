@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { authUserLogin } from '../../../features/auth/user/authUserSlice'
 import { authAdminLogin } from '../../../features/auth/admin/authAdminSlice'
 import LoginImg from '../../../assets/login/login-image.svg'
 import FormLogin from '../../UI/organisms/form/FormLogin'
@@ -9,7 +10,9 @@ function LoginPage() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+  const authUser = useSelector((state) => state.authUser)
   const authAdmin = useSelector((state) => state.authAdmin)
+
   const loading = useSelector((state) => state.authAdmin.loading)
 
   const [email, setEmail] = useState('')
@@ -25,12 +28,16 @@ function LoginPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    dispatch(authUserLogin({ email, password }))
     dispatch(authAdminLogin({ email, password }))
   }
 
   useEffect(() => {
-    authAdmin.auth.token ? navigate('/') : navigate('/login')
-  }, [authAdmin, navigate])
+    authUser.auth.token || authAdmin.auth.token
+      ? navigate('/')
+      : navigate('/login')
+  }, [authUser, authAdmin, navigate])
 
   return (
     <>
