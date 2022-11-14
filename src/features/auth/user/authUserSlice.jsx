@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import notif from 'react-hot-toast'
 
 const token = 'eyJhbGciOiJIUzI1NiIsInR'
 
@@ -47,9 +46,8 @@ const authUserSlice = createSlice({
       state.auth = payload
       state.loading = false
     },
-    [authUserLogin.rejected]: (state, { error }) => {
+    [authUserLogin.rejected]: (state) => {
       state.loading = false
-      notif.error(error.message)
     },
   },
 })
