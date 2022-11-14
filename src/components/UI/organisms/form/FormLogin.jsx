@@ -38,7 +38,7 @@ function FormLogin({
             type='text'
             className='block w-full rounded-lg border border-gray-300 bg-white p-4 pl-10 text-sm text-gray-900 focus:border-blue-100 focus:outline-none focus:ring-1
                   focus:ring-blue-500'
-            placeholder='Email'
+            placeholder='Email or Username'
             value={email}
             onChange={emailChange}
             required
