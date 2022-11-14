@@ -11,9 +11,8 @@ function CardProductDetail({
   price,
   productItem,
 }) {
-  const [count, setCount] = useState(1)
-  console.log(count)
-  console.log(productItem)
+  const [count, setCount] = useState(0)
+
   function handleSubstract() {
     if (count > 1) {
       setCount(count - 1)
@@ -21,9 +20,11 @@ function CardProductDetail({
       setCount(1)
     }
   }
+
   function handelAdd() {
     setCount(count + 1)
   }
+
   return (
     <>
       <div className='layout mt-6 bg-white md:my-8'>
