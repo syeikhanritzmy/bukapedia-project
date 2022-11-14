@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import LinkNavbar from '../../atoms/link-navbar/LinkNavbar'
 import ButtonNavbar from '../../atoms/button/ButtonNavbar'
 import Logo from '../../atoms/logo/Logo'
@@ -7,6 +8,9 @@ import CartIcon from '../../atoms/icon/Cart'
 
 function Navbar() {
   const navigate = useNavigate()
+
+  const authUser = useSelector((state) => state.authUser)
+  const authAdmin = useSelector((state) => state.authAdmin)
 
   const [navColor, setNavColor] = useState('bg-white')
 
@@ -25,7 +29,8 @@ function Navbar() {
 
   function handleLogout() {
     if (window.confirm('Are you sure to logout?')) {
-      localStorage.removeItem('auth')
+      localStorage.removeItem('auth_admin') ||
+        localStorage.removeItem('auth_user')
       window.location.reload()
       navigate('/')
     } else {
@@ -65,12 +70,14 @@ function Navbar() {
               <button
                 className='rounded-md border border-blue-600 px-4 py-2 shadow-xl shadow-blue-100/50 hover:text-black'
                 onClick={
-                  localStorage.getItem('auth')
+                  authUser.auth.token || authAdmin.auth.token
                     ? handleLogout
                     : () => navigate('/login')
                 }
               >
-                {localStorage.getItem('auth') ? 'Logout' : 'Login'}
+                {authUser.auth.token || authAdmin.auth.token
+                  ? 'Log Out'
+                  : 'Log In'}
               </button>
             </div>
           </div>
