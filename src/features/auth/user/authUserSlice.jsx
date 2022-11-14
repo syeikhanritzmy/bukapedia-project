@@ -4,7 +4,7 @@ import notif from 'react-hot-toast'
 const token = 'eyJhbGciOiJIUzI1NiIsInR'
 
 const initialState = {
-  auth: JSON.parse(localStorage.getItem('auth')) || [],
+  auth: JSON.parse(localStorage.getItem('auth_user')) || [],
   loading: false,
 }
 
@@ -27,7 +27,7 @@ export const authUserLogin = createAsyncThunk(
   async ({ email, password }) => {
     try {
       const res = await loginUser(email, password)
-      localStorage.setItem('auth', JSON.stringify(res))
+      localStorage.setItem('auth_user', JSON.stringify(res))
       return res
     } catch (e) {
       throw new Error(e)
