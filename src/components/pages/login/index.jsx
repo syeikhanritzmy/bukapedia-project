@@ -1,7 +1,7 @@
-import React from 'react'
-import { Helmet, HelmetProvider } from 'react-helmet-async'
-import LoginPage from './LoginPage'
-import { Toaster } from 'react-hot-toast'
+import React from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import LoginPage from './LoginPage';
+import { Toaster } from 'react-hot-toast';
 
 function index() {
   return (
@@ -15,7 +15,7 @@ function index() {
       <Toaster />
       <LoginPage />
     </>
-  )
+  );
 }
 
-export default index
+export default index;
