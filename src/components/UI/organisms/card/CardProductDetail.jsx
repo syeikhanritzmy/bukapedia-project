@@ -40,38 +40,37 @@ function CardProductDetail({
             <h3 className="border-b border-gray-200 text-lg font-bold text-gray-900 lg:text-xl ">
               {title}
             </h3>
-          </div>
-          <div className="mt-4">
-            <p className="text-sm font-normal text-gray-900 md:text-base">
-              {description}
-            </p>
-          </div>
+            <div className="mt-4">
+              <p className="text-sm font-normal text-gray-900 md:text-base">
+                {description}
+              </p>
+            </div>
 
-          <div className="my-4 md:mt-4">
-            <span className="text-base font-bold text-gray-900 md:text-lg">
-              Price <span className="text-sm">$</span>
-              {price}
-            </span>
-          </div>
+            <div className="my-4 md:mt-4">
+              <span className="text-base font-bold text-gray-900 md:text-lg">
+                Price <span className="text-sm">$</span>
+                {price}
+              </span>
+            </div>
 
-          <div className="sticky bottom-0 flex justify-center bg-white py-2 md:relative md:mt-8 md:justify-start md:py-0">
-            <div className="flex items-center gap-12">
-              <div className="m-0 flex gap-12 md:mt-4">
-                <div className="flex items-center gap-4">
-                  <ButtonCount
-                    count={count}
-                    handelAdd={handelAdd}
-                    handleSubstract={handleSubstract}
+            <div className="sticky bottom-0 flex justify-center bg-white py-2 md:relative md:mt-8 md:justify-start md:py-0">
+              <div className="flex items-center gap-12">
+                <div className="m-0 flex gap-12 md:mt-4">
+                  <div className="flex items-center gap-4">
+                    <ButtonCount
+                      count={count}
+                      handelAdd={handelAdd}
+                      handleSubstract={handleSubstract}
+                    />
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <ButtonAddToCart
+                    buttonName={'Add to Cart'}
+                    product={productItem}
+                    counter={count}
                   />
                 </div>
-              </div>
-
-              <div className="mt-4">
-                <ButtonAddToCart
-                  buttonName={'Add to Cart'}
-                  product={productItem}
-                  counter={count}
-                />
               </div>
             </div>
           </div>
