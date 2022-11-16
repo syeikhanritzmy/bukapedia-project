@@ -9,8 +9,6 @@ function Card({ srcImg, altImg, title, price, clickProductDetail, product }) {
     setCount(count + 1);
   };
 
-  console.log(count);
-
   useEffect(() => {
     addOneToCart();
   }, []);
