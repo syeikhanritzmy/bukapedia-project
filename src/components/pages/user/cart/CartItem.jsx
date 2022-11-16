@@ -7,7 +7,15 @@ import {
   removeFromCart,
 } from '../../../../features/cart/cartSlice';
 
-function CartItem({ id, title, price, category, image, cartQuantity, Sum }) {
+function CartItem({
+  id,
+  title,
+  price,
+  category,
+  image,
+  cartQuantity,
+  isCheckout,
+}) {
   const dispatch = useDispatch();
 
   const handleDecrement = () => {
@@ -26,7 +34,7 @@ function CartItem({ id, title, price, category, image, cartQuantity, Sum }) {
             className="h-5 w-5 "
             type="checkbox"
             title="include in total"
-            checked={Sum}
+            checked={isCheckout}
             onChange={() => {
               dispatch(includeItem({ id }));
             }}
