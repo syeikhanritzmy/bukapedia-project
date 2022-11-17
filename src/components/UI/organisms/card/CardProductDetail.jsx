@@ -11,7 +11,7 @@ function CardProductDetail({
   price,
   productItem,
 }) {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(1)
 
   function handleSubstract() {
     if (count > 1) {

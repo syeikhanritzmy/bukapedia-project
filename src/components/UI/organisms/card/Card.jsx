@@ -6,8 +6,8 @@ function Card({ srcImg, altImg, title, price, clickProductDetail, product }) {
   const [count, setCount] = useState(0)
 
   const addOneToCart = () => {
-    setCount(count + 1)
-  }
+    setCount(count + 1);
+  };
 
   useEffect(() => {
     addOneToCart()
