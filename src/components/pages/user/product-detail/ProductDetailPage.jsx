@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchProductDetail } from '../../../features/product-detail/productDetailSlice'
-import CardProductDetail from '../../UI/organisms/card/CardProductDetail'
-import SkeletonProductDetail from '../../UI/atoms/skeleton/SkeletonProductDetail'
+import { fetchProductDetail } from '../../../../features/product-detail/productDetailSlice'
+import CardProductDetail from '../../../UI/organisms/card/CardProductDetail'
+import SkeletonProductDetail from '../../../UI/atoms/skeleton/SkeletonProductDetail'
 
 function ProductDetailPage() {
   const dispatch = useDispatch()
@@ -18,7 +18,7 @@ function ProductDetailPage() {
 
   return (
     <>
-      <div>
+      <div className='mx-auto max-w-screen-xl'>
         {loading ? (
           <SkeletonProductDetail />
         ) : (
@@ -28,6 +28,7 @@ function ProductDetailPage() {
             title={product?.title}
             description={product?.description}
             price={product?.price}
+            productItem={product}
           />
         )}
       </div>

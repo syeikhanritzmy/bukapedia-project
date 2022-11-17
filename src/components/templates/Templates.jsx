@@ -1,19 +1,49 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import Navbar from '../UI/organisms/navbar/Navbar'
 
-import HomePage from '../pages/home'
-import ProductDetailPage from '../pages/product-detail/ProductDetailPage'
+import HomePage from '../pages/user/home'
+import ProductDetailPage from '../pages/user/product-detail'
+import CartPage from '../pages/user/cart'
+import LoginPage from '../pages/login'
+
+import HomeAdminPage from '../pages/admin/home'
+import RekapPenjualan from '../pages/admin/rekap-penjualan'
+
+import NotFoundPage from '../pages/not-found'
 
 function Templates() {
+  const authAdmin = useSelector((state) => state.authAdmin.auth)
+  const authUser = useSelector((state) => state.authUser.auth)
+
   return (
     <>
       <Navbar />
 
       <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/product/:productId' element={<ProductDetailPage />} />
+        {authAdmin.token ? (
+          <>
+            <Route path='/' element={<HomeAdminPage />} />
+            <Route path='/rekap-penjualan' element={<RekapPenjualan />} />
+            <Route path='/login' element={<LoginPage />} />
+          </>
+        ) : (
+          <>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/product/:productId' element={<ProductDetailPage />} />
+            <Route
+              path={authUser.token ? '/cart' : '/login'}
+              element={
+                authUser.token ? <CartPage /> : <LoginPage redirect='/cart' />
+              }
+            />
+            <Route path='/login' element={<LoginPage />} />
+          </>
+        )}
+
+        <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </>
   )

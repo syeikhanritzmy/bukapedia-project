@@ -1,12 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Breadcrumbs from '../../atoms/breadcrumbs/Breadcrumbs'
 import ButtonCount from '../../atoms/button/ButtonCount'
 import ButtonAddToCart from '../../atoms/button/ButtonAddToCart'
 
-function CardProductDetail({ srcImg, altImg, title, description, price }) {
+function CardProductDetail({
+  srcImg,
+  altImg,
+  title,
+  description,
+  price,
+  productItem,
+}) {
+  const [count, setCount] = useState(1)
+
+  function handleSubstract() {
+    if (count > 1) {
+      setCount(count - 1)
+    } else {
+      setCount(1)
+    }
+  }
+
+  function handelAdd() {
+    setCount(count + 1)
+  }
+
   return (
     <>
-      <div className='layout my-6 bg-white md:my-8'>
+      <div className='layout mt-6 bg-white md:my-8'>
         <div>
           <Breadcrumbs />
         </div>
@@ -27,22 +48,32 @@ function CardProductDetail({ srcImg, altImg, title, description, price }) {
               </p>
             </div>
 
-            <div className='mt-4'>
+            <div className='my-4 md:mt-4'>
               <span className='text-base font-bold text-gray-900 md:text-lg'>
                 Price <span className='text-sm'>$</span>
                 {price}
               </span>
             </div>
 
-            <div className='mt-8 flex items-center gap-12'>
-              <div className='mt-4 flex gap-12'>
-                <div className='flex items-center gap-4'>
-                  <ButtonCount />
+            <div className='sticky bottom-0 flex justify-center bg-white py-2 md:relative md:mt-8 md:justify-start md:py-0'>
+              <div className='flex items-center gap-12'>
+                <div className='m-0 flex gap-12 md:mt-4'>
+                  <div className='flex items-center gap-4'>
+                    <ButtonCount
+                      count={count}
+                      handelAdd={handelAdd}
+                      handleSubstract={handleSubstract}
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div className='mt-4'>
-                <ButtonAddToCart buttonName={'Add to Cart'} />
+                <div className='mt-4'>
+                  <ButtonAddToCart
+                    buttonName={'Add to Cart'}
+                    product={productItem}
+                    counter={count}
+                  />
+                </div>
               </div>
             </div>
           </div>

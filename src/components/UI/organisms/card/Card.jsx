@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useState } from 'react'
 import ButtonAddToCart from '../../atoms/button/ButtonAddToCart'
 
-function Card({ srcImg, altImg, title, price, clickProductDetail }) {
+function Card({ srcImg, altImg, title, price, clickProductDetail, product }) {
+  const [count, setCount] = useState(0)
+
+  const addOneToCart = () => {
+    setCount(count + 1);
+  };
+
+  useEffect(() => {
+    addOneToCart()
+  }, [])
   return (
     <>
       <div className='bg-white pb-8 shadow-sm shadow-slate-100 hover:shadow-sm hover:shadow-gray-200 hover:transition-all'>
@@ -13,7 +23,6 @@ function Card({ srcImg, altImg, title, price, clickProductDetail }) {
               className='h-24 w-full object-scale-down md:h-32'
             />
           </div>
-
           <div className='mt-2 px-4'>
             <h3
               className='cursor-pointer text-left text-sm font-semibold text-gray-900 hover:text-blue-600 md:text-base lg:text-lg'
@@ -32,7 +41,11 @@ function Card({ srcImg, altImg, title, price, clickProductDetail }) {
         </div>
 
         <div className='mt-4 flex justify-center'>
-          <ButtonAddToCart buttonName={'Add to Cart'} />
+          <ButtonAddToCart
+            buttonName={'Add to Cart'}
+            product={product}
+            counter={count}
+          />
         </div>
       </div>
     </>
