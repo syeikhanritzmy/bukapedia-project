@@ -78,7 +78,7 @@ function Navbar() {
                         ? 'active flex gap-2'
                         : 'inactive flex gap-2 hover:text-blue-500'
                     }
-                    to='/cart'
+                    to={authUser.auth.token ? '/cart' : '/login'}
                   >
                     <CartIcon className={'mt-0.5 h-5 w-5 text-black'} /> Cart
                   </NavLink>
