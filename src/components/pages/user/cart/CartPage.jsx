@@ -18,7 +18,9 @@ function CartPage() {
           ?.map((item) =>
             item.isCheckout ? item.price * item.cartQuantity : 0
           )
-          .reduce((itemPrice, accPrice) => accPrice + itemPrice);
+          .reduce((itemPrice, accPrice) => accPrice + itemPrice)
+          .toString()
+          .substring(0, 5);
 
   const checkoutHandler = () => {
     const item = allCart.filter((item) => item.isCheckout);
