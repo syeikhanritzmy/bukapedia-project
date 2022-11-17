@@ -10,6 +10,7 @@ import CartPage from '../pages/user/cart'
 import LoginPage from '../pages/login'
 
 import HomeAdminPage from '../pages/admin/home'
+import RekapPenjualan from '../pages/admin/rekap-penjualan'
 
 import NotFoundPage from '../pages/not-found'
 
@@ -25,6 +26,7 @@ function Templates() {
         {authAdmin.token ? (
           <>
             <Route path='/' element={<HomeAdminPage />} />
+            <Route path='/rekap-penjualan' element={<RekapPenjualan />} />
             <Route path='/login' element={<LoginPage />} />
           </>
         ) : (
