@@ -15,6 +15,7 @@ import NotFoundPage from '../pages/not-found'
 
 function Templates() {
   const authAdmin = useSelector((state) => state.authAdmin.auth)
+  const authUser = useSelector((state) => state.authUser.auth)
 
   return (
     <>
@@ -30,7 +31,12 @@ function Templates() {
           <>
             <Route path='/' element={<HomePage />} />
             <Route path='/product/:productId' element={<ProductDetailPage />} />
-            <Route path='/cart' element={<CartPage />} />
+            <Route
+              path={authUser.token ? '/cart' : '/login'}
+              element={
+                authUser.token ? <CartPage /> : <LoginPage redirect='/cart' />
+              }
+            />
             <Route path='/login' element={<LoginPage />} />
           </>
         )}
